@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Mood-Based Music System",
+    "description": "Detects user's mood using facial expressions and plays matching music using Python, OpenCV, and MongoDB.",
+    "tech_stack": ["Python", "OpenCV", "MongoDB", "Machine Learning"],
+    "github_link": "https://github.com/Urmila1945/Mood_Based_Music_System",
+    "live_link": null,
+    "image": "music.jpg"
+  },
+  {
+    "title": "House Price Prediction App",
+    "description": "Predict the current prices of houses in different cities with the help of machine learning.",
+    "tech_stack": ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
+    "github_link": "https://github.com/Urmila1945/PRODIGY_ML_01",
+    "live_link": null,
+    "image": "ml_projects.webp"
+  },
+  {
+    "title": "Voice Assistant",
+    "description": "Provides information like current date and time, sets meetings, plays songs, and more.",
+    "tech_stack": ["Python", "Speech Recognition", "PyAudio"],
+    "github_link": "https://github.com/Urmila1945/Voice_Assistant",
+    "live_link": null,
+    "image": "Weather_app.webp"
+  },
+  {
+    "title": "Expense Tracker",
+    "description": "A React-based app to track personal expenses, add transactions, and visualize spending.",
+    "tech_stack": ["React", "JavaScript", "CSS", "Local Storage"],
+    "github_link": "https://github.com/Urmila1945/Expense_Tracker",
+    "live_link": null,
+    "image": "expense_tracker.png"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "A dynamic portfolio website built with Flask, featuring projects, certificates, and a resume analyzer.",
+    "tech_stack": ["Flask", "Python", "HTML", "CSS", "JavaScript", "MongoDB"],
+    "github_link": "https://github.com/Urmila1945/Portfolio",
+    "live_link": "http://localhost:5000",
+    "image": "portfolio.webp"
+  },
+  {
+    "title": "Plagiarism Detection System",
+[
+  {
+    "title": "Mood-Based Music System",
+    "description": "Detects user's mood using facial expressions and plays matching music using Python, OpenCV, and MongoDB.",
+    "tech_stack": ["Python", "OpenCV", "MongoDB", "Machine Learning"],
+    "github_link": "https://github.com/Urmila1945/Mood_Based_Music_System",
+    "live_link": null,
+    "image": "music.jpg"
+  },
+  {
+    "title": "House Price Prediction App",
+    "description": "Predict the current prices of houses in different cities with the help of machine learning.",
+    "tech_stack": ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
+    "github_link": "https://github.com/Urmila1945/PRODIGY_ML_01",
+    "live_link": null,
+    "image": "ml_projects.webp"
+  },
+  {
+    "title": "Voice Assistant",
+    "description": "Provides information like current date and time, sets meetings, plays songs, and more.",
+    "tech_stack": ["Python", "Speech Recognition", "PyAudio"],
+    "github_link": "https://github.com/Urmila1945/Voice_Assistant",
+    "live_link": null,
+    "image": "Weather_app.webp"
+  },
+  {
+    "title": "Expense Tracker",
+    "description": "A React-based app to track personal expenses, add transactions, and visualize spending.",
+    "tech_stack": ["React", "JavaScript", "CSS", "Local Storage"],
+    "github_link": "https://github.com/Urmila1945/Expense_Tracker",
+    "live_link": null,
+    "image": "expense_tracker.png"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "A dynamic portfolio website built with Flask, featuring projects, certificates, and a resume analyzer.",
+    "tech_stack": ["Flask", "Python", "HTML", "CSS", "JavaScript", "MongoDB"],
+    "github_link": "https://github.com/Urmila1945/Portfolio",
+    "live_link": "http://localhost:5000",
+    "image": "portfolio.webp"
+  },
+  {
+    "title": "Plagiarism Detection System",
+    "description": "A system to detect plagiarism in documents using NLP techniques and cosine similarity.",
+    "tech_stack": ["Python", "NLTK", "Scikit-learn", "Flask"],
+    "github_link": "https://github.com/Urmila1945/Plagiarism_Detector",
+    "live_link": null,
+    "image": "plagiarism.jpg"
+  },
+  {
+    "title": "Auto Diet Generator using AI + Grocery Optimizer (SmartBite)",
+    "description": "An AI-powered health platform built with Flask and MongoDB that generates personalized diet plans and optimizes grocery shopping lists based on user profiles.",
+    "tech_stack": ["Flask", "MongoDB", "Machine Learning", "HTML", "CSS"],
+    "github_link": "https://github.com/Urmila1945",
+    "live_link": null,
+    "image": "default.png"
+  }
+]

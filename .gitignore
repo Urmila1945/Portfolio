@@ -1,0 +1,13 @@
+node_modules/
+.qodo/
+dist/
+build/
+__pycache__/
+*.pyc
+.env
+temp_clone/
+Portfolio/
+.DS_Store
+resume_data/
+static/
+templates/
