@@ -749,6 +749,66 @@ section {
   background: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
   border-radius: 0 2px 2px 0;
 }
+.education-card:hover h3 {
+  color: #fff;
+}
+
+/* NEW: Certifications & Small Cards Grid */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cert-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-1), var(--accent-2));
+  opacity: 0.5;
+  transition: opacity var(--transition);
+}
+.cert-card:hover {
+  transform: translateY(-5px);
+  background: var(--surface-light);
+  border-color: rgba(192,132,252,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.cert-card:hover::before {
+  opacity: 1;
+}
+.cert-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+}
+.cert-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+.cert-card .cert-date {
+  font-size: 0.8rem;
+  color: var(--accent-1);
+  margin-top: 1rem;
+}
+
 .education-card:hover {
   transform: translateX(6px);
   border-color: rgba(192,132,252,0.4);
@@ -1203,6 +1263,31 @@ section {
   transform: scale(1.12);
   box-shadow: 0 8px 30px rgba(244,114,182,0.7);
   color: white;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 28px; left: 28px;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 9998;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all var(--transition);
+}
+.back-to-top-btn:hover {
+  transform: translateY(-5px);
+  background: var(--surface-light);
+  color: #fff;
+  border-color: var(--accent-1);
+  box-shadow: 0 8px 25px rgba(192,132,252,0.4);
 }
 #chatbot-icon:hover {
   transform: scale(1.12);

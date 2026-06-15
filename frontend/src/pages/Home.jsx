@@ -352,6 +352,216 @@ function Home() {
         </div>
       </section>
 
+      <section className="experience" id="experience" style={{ paddingTop: '80px' }}>
+        <h2 className="section-title reveal">Experience</h2>
+        <span className="section-accent reveal"></span>
+        <p className="section-subtitle reveal">Internships and Industry Job Simulations.</p>
+
+        <div className="education-container stagger-children">
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Artificial Intelligence Intern</h3>
+              <p>Infosys Springboard</p>
+              <p>📅 2 Months • Completed: 28 November 2025</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Artificial Intelligence Intern</h3>
+              <p>CODEC</p>
+              <p>📅 1 Month • Completed: 25 May 2026</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Artificial Intelligence Intern</h3>
+              <p>CODSOFT</p>
+              <p>📅 1 Month • Completed: 10 January 2026</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Data Analytics Intern</h3>
+              <p>iStudio</p>
+              <p>📅 1 Month • Completed: 5 September 2025</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Python Programming Intern</h3>
+              <p>Oasis Infobyte</p>
+              <p>📅 ~1.5 Months • Completed: 15 July 2025</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Machine Learning Intern</h3>
+              <p>Prodigy InfoTech</p>
+              <p>📅 1 Month • Completed: 15 July 2025</p>
+            </div>
+          </div>
+          
+          <h3 className="reveal" style={{ marginTop: '2rem', color: 'var(--accent-1)', textAlign: 'center', width: '100%' }}>Industry Job Simulations</h3>
+          
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>GenAI Powered Data Analytics</h3>
+              <p>Tata Group (Forage)</p>
+              <p>📅 21 July 2025</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Data Visualisation: Empowering Business with Effective Insights</h3>
+              <p>Tata Group (Forage)</p>
+              <p>📅 20 July 2025</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>Data Analytics</h3>
+              <p>Deloitte (Forage)</p>
+              <p>📅 1 July 2026</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="hackathons" id="hackathons" style={{ paddingTop: '80px' }}>
+        <h2 className="section-title reveal">Hackathons &amp; Events</h2>
+        <span className="section-accent reveal"></span>
+        <p className="section-subtitle reveal">Competitive programming and technical events.</p>
+
+        <div className="education-container stagger-children">
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>HackAstra – Innovision 3.0 Hackathon</h3>
+              <p>K. V. Pendharkar College Department of IT</p>
+              <p>📅 7 February 2026</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>AI Academia – Chronomind</h3>
+              <p>📅 2026</p>
+            </div>
+          </div>
+          <div className="education-card reveal">
+            <div className="education-text">
+              <h3>AI Academia – Decision arena</h3>
+              <p>📅 2026</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="certifications" id="certifications" style={{ padding: '80px 8%' }}>
+        <h2 className="section-title reveal">Certifications</h2>
+        <span className="section-accent reveal"></span>
+        <p className="section-subtitle reveal">Professional achievements and continuous learning.</p>
+
+        <h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', marginBottom: '1rem' }}>Professional Certifications</h3>
+        <div className="cert-grid stagger-children">
+          <div className="cert-card reveal">
+            <h4>Python Essentials</h4>
+            <p>Cisco Networking Academy</p>
+            <div className="cert-date">28 May 2026</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>AI Fundamentals</h4>
+            <p>Cisco &amp; IBM SkillsBuild</p>
+            <div className="cert-date">29 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Introduction to Data Science</h4>
+            <p>Cisco Networking Academy</p>
+            <div className="cert-date">1 January 2026</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>AWS Cloud Practitioner</h4>
+            <p>AWS</p>
+            <div className="cert-date">17 January 2026</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>TCS iON Career Edge – Young Professional</h4>
+            <p>TCS iON</p>
+            <div className="cert-date">15 August 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Artificial Intelligence Fundamentals</h4>
+            <p>IBM SkillsBuild</p>
+            <div className="cert-date">29 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Machine Learning 101</h4>
+            <p>CSI-CATT DMCE</p>
+            <div className="cert-date">2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Supercharge Your Productivity with AI</h4>
+            <p>IIDE</p>
+            <div className="cert-date">31 January 2026</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Introduction to Career Skills in Data Analytics</h4>
+            <p>LinkedIn Learning</p>
+            <div className="cert-date">20 June 2025</div>
+          </div>
+        </div>
+
+        <h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', margin: '4rem 0 1rem' }}>Infosys Springboard Certifications</h3>
+        <div className="cert-grid stagger-children">
+          <div className="cert-card reveal">
+            <h4>Artificial Intelligence Primer</h4>
+            <div className="cert-date">15 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Data Science</h4>
+            <div className="cert-date">5 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Deep Learning</h4>
+            <div className="cert-date">8 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Deep Learning for Developers</h4>
+            <div className="cert-date">13 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Generative AI</h4>
+            <div className="cert-date">8 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Generative Models for Developers</h4>
+            <div className="cert-date">12 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Prompt Engineering</h4>
+            <div className="cert-date">8 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Natural Language Processing</h4>
+            <div className="cert-date">9 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>Computer Vision 101</h4>
+            <div className="cert-date">9 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>OpenAI GPT</h4>
+            <div className="cert-date">11 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>GPT-3</h4>
+            <div className="cert-date">12 June 2025</div>
+          </div>
+          <div className="cert-card reveal">
+            <h4>AI</h4>
+            <div className="cert-date">2 June 2025</div>
+          </div>
+        </div>
+      </section>
+
       <section className="contact" id="contact">
         <h2 className="section-title reveal">Get in Touch</h2>
         <span className="section-accent reveal"></span>

@@ -13,6 +13,7 @@ import Certificates from './pages/Certificates';
 import Knowledge from './pages/Knowledge';
 import Blog from './pages/Blog';
 import ResumeAnalyzer from './pages/ResumeAnalyzer';
+import BackToTop from './components/BackToTop';
 
 function RouteChangeHandler() {
   const { pathname, hash } = useLocation();
@@ -126,6 +127,7 @@ function App() {
       <Link to="/resume_analyzer" className="floating-resume-btn" title="AI Resume Analyzer" aria-label="AI Resume Analyzer">
         <i className="fas fa-magic"></i>
       </Link>
+      <BackToTop />
       <Chatbot />
       <Footer />
     </Router>
