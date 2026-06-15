@@ -844,11 +844,7 @@ section {
   border-radius: 12px;
   object-fit: contain;
   background: rgba(255,255,255,0.08);
-  padding: 6px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  filter: drop-shadow(0 0 8px rgba(244,114,182,0.3));
 }
-
 .edu-logo-placeholder {
   width: 70px; height: 70px;
   border-radius: 12px;
@@ -861,7 +857,6 @@ section {
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
-/* ── SKILLS SECTION ───────────────────────── */
 .skills {
   background: transparent;
   text-align: center;
