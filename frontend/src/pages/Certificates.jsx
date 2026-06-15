@@ -87,56 +87,47 @@ function Certificates() {
 
 <h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', margin: '4rem 0 1rem' }}>Internships</h3>
 <div className="card-container stagger-children">
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-laptop-code"></i></div>
-    <div className="cert-body">
-      <h3>Artificial Intelligence Intern</h3>
-      <p className="cert-issuer"><i className="fas fa-building"></i> Infosys Springboard</p>
-      <p className="cert-date">Completed: 28 Nov 2025</p>
-      <span className="cert-badge">2 Months</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/12NvwhKtvzDFpqs1MOjg2xcuGT5RfqwH1/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-code"></i></div>
     <div className="cert-body">
       <h3>Artificial Intelligence Intern</h3>
       <p className="cert-issuer"><i className="fas fa-building"></i> CODSOFT</p>
       <p className="cert-date">Completed: 10 Jan 2026</p>
-      <span className="cert-badge">1 Month</span>
+      <span className="cert-badge">Verified</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1wM-dESzBatm212OAtUteca4imeKUl23J/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-chart-line"></i></div>
     <div className="cert-body">
       <h3>Data Analytics Intern</h3>
       <p className="cert-issuer"><i className="fas fa-building"></i> iStudio</p>
       <p className="cert-date">Completed: 5 Sep 2025</p>
-      <span className="cert-badge">1 Month</span>
+      <span className="cert-badge">Verified</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1YZtr0XEciRwKoWMptBnlqP7NFtZ2gu5v/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fab fa-python"></i></div>
     <div className="cert-body">
       <h3>Python Programming Intern</h3>
       <p className="cert-issuer"><i className="fas fa-building"></i> Oasis Infobyte</p>
       <p className="cert-date">Completed: 15 Jul 2025</p>
-      <span className="cert-badge">~1.5 Months</span>
+      <span className="cert-badge">Verified</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1oiLxFVZTlmIPHTmZgBX5lBI6GeZI0NSH/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-brain"></i></div>
     <div className="cert-body">
       <h3>Machine Learning Intern</h3>
       <p className="cert-issuer"><i className="fas fa-building"></i> Prodigy InfoTech</p>
       <p className="cert-date">Completed: 15 Jul 2025</p>
-      <span className="cert-badge">1 Month</span>
+      <span className="cert-badge">Verified</span>
     </div>
   </a>
 </div>
 
 <h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', margin: '4rem 0 1rem' }}>Industry Job Simulations</h3>
 <div className="card-container stagger-children">
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1YNin6CY2on2nTNWJEYLBQIoyPkxn6BPQ/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-project-diagram"></i></div>
     <div className="cert-body">
       <h3>GenAI Powered Data Analytics</h3>
@@ -145,7 +136,7 @@ function Certificates() {
       <span className="cert-badge">Completed</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1_Ys2SGtOWRgem8lujg_TE_sI9WI6XPdC/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-chart-pie"></i></div>
     <div className="cert-body">
       <h3>Data Visualisation</h3>
@@ -154,7 +145,7 @@ function Certificates() {
       <span className="cert-badge">Completed</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1K53lANbjKfuvVydEhVVBNWdZmzfTpXXZ/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-chart-bar"></i></div>
     <div className="cert-body">
       <h3>Data Analytics</h3>
@@ -203,13 +194,13 @@ function Certificates() {
       <span className="cert-badge">Pending Link</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/12L8YA0d-qO6FNrhGVa9-2uPCih-o0Ffa/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-bolt"></i></div>
     <div className="cert-body">
       <h3>Supercharge Your Productivity with AI</h3>
       <p className="cert-issuer"><i className="fas fa-award"></i> IIDE</p>
       <p className="cert-date">31 January 2026</p>
-      <span className="cert-badge">Pending Link</span>
+      <span className="cert-badge">Verified</span>
     </div>
   </a>
   <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
@@ -218,118 +209,6 @@ function Certificates() {
       <h3>Career Skills in Data Analytics</h3>
       <p className="cert-issuer"><i className="fas fa-award"></i> LinkedIn Learning</p>
       <p className="cert-date">20 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-</div>
-
-<h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', margin: '4rem 0 1rem' }}>Infosys Springboard Certifications</h3>
-<div className="card-container stagger-children">
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-certificate"></i></div>
-    <div className="cert-body">
-      <h3>Artificial Intelligence Primer</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">15 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-database"></i></div>
-    <div className="cert-body">
-      <h3>Data Science</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">5 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-network-wired"></i></div>
-    <div className="cert-body">
-      <h3>Deep Learning</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">8 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-code-branch"></i></div>
-    <div className="cert-body">
-      <h3>Deep Learning for Developers</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">13 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-magic"></i></div>
-    <div className="cert-body">
-      <h3>Generative AI</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">8 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-layer-group"></i></div>
-    <div className="cert-body">
-      <h3>Generative Models for Developers</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">12 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-comment-dots"></i></div>
-    <div className="cert-body">
-      <h3>Prompt Engineering</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">8 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-language"></i></div>
-    <div className="cert-body">
-      <h3>Natural Language Processing</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">9 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-eye"></i></div>
-    <div className="cert-body">
-      <h3>Computer Vision 101</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">9 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-robot"></i></div>
-    <div className="cert-body">
-      <h3>OpenAI GPT</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">11 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-microchip"></i></div>
-    <div className="cert-body">
-      <h3>GPT-3</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">12 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-brain"></i></div>
-    <div className="cert-body">
-      <h3>AI</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Infosys Springboard</p>
-      <p className="cert-date">2 June 2025</p>
       <span className="cert-badge">Pending Link</span>
     </div>
   </a>
