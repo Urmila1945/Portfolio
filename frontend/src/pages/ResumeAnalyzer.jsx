@@ -4,6 +4,15 @@ function ResumeAnalyzer() {
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0].name);
+    } else {
+      setSelectedFile(null);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,14 +27,21 @@ function ResumeAnalyzer() {
         method: 'POST',
         body: formData,
       });
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (err) {
+        throw new Error(`Server error (${response.status})`);
+      }
+
       if (data.success) {
         setAnalysis(data.analysis);
       } else {
         setError(data.error || 'Failed to analyze resume.');
       }
     } catch (err) {
-      setError('An error occurred during upload.');
+      console.error(err);
+      setError(err.message || 'An error occurred during upload.');
     } finally {
       setLoading(false);
     }
@@ -40,16 +56,18 @@ function ResumeAnalyzer() {
 
         <div className="analyzer-container reveal">
           <form className="upload-box" id="resume-form" onSubmit={handleSubmit}>
-            <label className="upload-label" htmlFor="resume-file">
-              <i className="fas fa-cloud-upload-alt"></i>
-              <span>Drop your PDF here or click to browse</span>
-              <input accept=".pdf" id="resume-file" name="resume" required type="file" />
+            <label className="upload-label" htmlFor="resume-file" style={{ cursor: 'pointer', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '30px', border: '2px dashed var(--border)', borderRadius: '15px' }}>
+              <i className="fas fa-cloud-upload-alt" style={{ fontSize: '3rem', color: 'var(--accent-1)' }}></i>
+              <span style={{ display: 'block', marginTop: '10px' }}>
+                {selectedFile ? `Selected: ${selectedFile}` : 'Drop your PDF here or click to browse'}
+              </span>
+              <input accept=".pdf" id="resume-file" name="resume" required type="file" onChange={handleFileChange} style={{ opacity: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', cursor: 'pointer' }} />
             </label>
-            <button className="btn glow-btn" style={{ marginTop: '1.5rem' }} type="submit" disabled={loading}>
+            <button className="btn glow-btn" style={{ marginTop: '1.5rem', zIndex: 2, position: 'relative' }} type="submit" disabled={loading || !selectedFile}>
               <i className="fas fa-magic"></i> {loading ? 'Analyzing...' : 'Analyze Resume'}
             </button>
           </form>
-          {error && <p style={{ color: 'red', marginTop: '1rem' }}>{error}</p>}
+          {error && <p style={{ color: '#f87171', marginTop: '1rem', fontWeight: 'bold' }}>{error}</p>}
         </div>
 
         {analysis && (
