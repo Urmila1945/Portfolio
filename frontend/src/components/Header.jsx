@@ -36,12 +36,6 @@ function Header() {
         <a href="#education" onClick={(e) => handleScroll(e, 'education')} id="nav-education">Education</a>
         <a href="#skills" onClick={(e) => handleScroll(e, 'skills')} id="nav-skills">Skills</a>
         <a href="#contact" onClick={(e) => handleScroll(e, 'contact')} id="nav-contact">Contact</a>
-        <Link to="/projects" id="nav-projects">Projects</Link>
-        <Link to="/certificates" id="nav-certs">Certs</Link>
-        <Link to="/knowledge" id="nav-knowledge">Knowledge</Link>
-        <Link to="/resume_analyzer" className="resume-analyzer-icon" id="nav-analyzer">
-          <i className="fas fa-magic"></i>&nbsp;AI Resume
-        </Link>
       </nav>
       <button className="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
         <i className="fas fa-bars"></i>

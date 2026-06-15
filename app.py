@@ -56,9 +56,9 @@ def _send_email_notification(contact_data):
     import smtplib
     from email.mime.text import MIMEText
 
-    SMTP_EMAIL    = os.environ.get('SMTP_EMAIL', 'urmilakshirsagar1945@gmail.com')       # your Gmail address
-    SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', 'mywy prws svft hpop')    # Gmail App Password
-    NOTIFY_TO     = os.environ.get('NOTIFY_TO', 'urmilakshirsagar1945@gmail.com')
+    SMTP_EMAIL    = os.environ.get('SMTP_EMAIL')
+    SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD')
+    NOTIFY_TO     = os.environ.get('NOTIFY_TO', SMTP_EMAIL)
 
     if not SMTP_EMAIL or not SMTP_PASSWORD:
         return  # Email not configured — skip silently
@@ -143,29 +143,57 @@ def resume():
 # ─────────────────────────────────────────────────────────────
 @app.route('/chat', methods=['POST'])
 def chat():
+    import urllib.request
+    import json
+    
     data       = request.get_json(silent=True) or {}
-    user_input = data.get('message', '').lower().strip()
+    user_input = data.get('message', '').strip()
 
-    if any(g in user_input for g in ['hi', 'hello', 'hey', 'hii', 'helo']):
-        reply = "Hello! I'm Urmila's portfolio assistant. Ask me about her skills, projects, education, or how to contact her!"
-    elif any(k in user_input for k in ['skill', 'language', 'tech', 'know']):
-        reply = "Urmila is skilled in Python, Flask, Scikit-learn, Pandas, SQL, Java, HTML/CSS and more. She also works with Git, Jupyter Notebook and Google Colab!"
-    elif any(k in user_input for k in ['project', 'built', 'work', 'made']):
-        reply = "Urmila has 15+ projects including an AI Career Recommender, Plagiarism Detector, Face Recognition System, Weather App, and more. Check /projects to see them all!"
-    elif any(k in user_input for k in ['education', 'college', 'study', 'cgpa', 'grade', 'score']):
-        reply = "She is pursuing B.E. in AI & Data Science at DMCE (CGPA: 8.7). Previously scored 85% in HSC and 93% in SSC!"
-    elif any(k in user_input for k in ['contact', 'reach', 'email', 'hire', 'connect']):
-        reply = "You can reach Urmila at urmilakshirsagar1945@gmail.com, or connect via LinkedIn and GitHub. Links are in the Contact section!"
-    elif any(k in user_input for k in ['certificate', 'cert', 'course', 'award']):
-        reply = "Urmila has 8+ certifications from IBM, Google, AWS, deeplearning.ai and more! Visit /certificates to see them all."
-    elif any(k in user_input for k in ['thank', 'thanks', 'great', 'awesome', 'nice']):
-        reply = "You are most welcome! Feel free to explore the portfolio or drop a message in the contact section!"
-    elif any(k in user_input for k in ['name', 'who', 'about', 'tell me']):
-        reply = "I'm the AI assistant for Urmila Kshirsagar's portfolio — a Python Developer & AI enthusiast from Mumbai, India!"
-    elif any(k in user_input for k in ['location', 'from', 'where', 'city']):
-        reply = "Urmila is based in Mumbai, Maharashtra, India. She is currently studying at DMCE, Airoli."
-    else:
-        reply = "I'm here to help! Try asking about Urmila's skills, projects, education, certificates, location or contact info."
+    if not user_input:
+        return jsonify({'reply': "Please ask a question."})
+
+    api_key = os.environ.get('GROQ_API_KEY')
+    if not api_key:
+        return jsonify({'reply': "I'm sorry, the chatbot is currently unavailable due to missing configuration."})
+    url = "https://api.groq.com/openai/v1/chat/completions"
+    
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0"
+    }
+    
+    system_prompt = (
+        "You are an AI assistant for Urmila Kshirsagar's portfolio. "
+        "Your only job is to answer questions about Urmila, her portfolio, projects, skills, education, and contact details. "
+        "Urmila is a Python Developer & AI/Data Science Student at DMCE (CGPA: 8.7). "
+        "Skills: Python, Flask, Scikit-learn, Pandas, SQL, Java, HTML/CSS. "
+        "She has 15+ projects (AI Career Recommender, Plagiarism Detector, Face Recognition System, Weather App). "
+        "She has 8+ certifications (IBM, Google, AWS, deeplearning.ai). "
+        "Contact: urmilakshirsagar1945@gmail.com. "
+        "Location: Mumbai, Maharashtra, India. "
+        "If a user asks about something completely unrelated to Urmila or her portfolio, politely refuse to answer and remind them that you are Urmila's portfolio assistant. "
+        "Keep responses concise, friendly, and professional."
+    )
+    
+    payload = {
+        "model": "llama-3.1-8b-instant",
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_input}
+        ],
+        "temperature": 0.3,
+        "max_tokens": 150
+    }
+    
+    try:
+        req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers)
+        with urllib.request.urlopen(req, timeout=10) as response:
+            result = json.loads(response.read().decode('utf-8'))
+            reply = result['choices'][0]['message']['content']
+    except Exception as e:
+        print("Groq API Error:", e)
+        reply = "I'm sorry, I'm having trouble connecting to my brain right now. Please try again later or contact Urmila directly at urmilakshirsagar1945@gmail.com."
 
     return jsonify({'reply': reply})
 

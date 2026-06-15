@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
@@ -123,6 +123,9 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/resume_analyzer" element={<ResumeAnalyzer />} />
       </Routes>
+      <Link to="/resume_analyzer" className="floating-resume-btn" title="AI Resume Analyzer" aria-label="AI Resume Analyzer">
+        <i className="fas fa-magic"></i>
+      </Link>
       <Chatbot />
       <Footer />
     </Router>
