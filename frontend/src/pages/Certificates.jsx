@@ -87,7 +87,7 @@ function Certificates() {
 
 <h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', margin: '4rem 0 1rem' }}>Internships</h3>
 <div className="card-container stagger-children">
-  <a className="cert-card reveal" href="https://drive.google.com/file/d/12NvwhKtvzDFpqs1MOjg2xcuGT5RfqwH1/view?usp=sharing" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1yQ4djJ6byp2CLAvls7isDunJCI3Q1eY_/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-code"></i></div>
     <div className="cert-body">
       <h3>Artificial Intelligence Intern</h3>
@@ -114,7 +114,7 @@ function Certificates() {
       <span className="cert-badge">Verified</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="https://drive.google.com/file/d/1oiLxFVZTlmIPHTmZgBX5lBI6GeZI0NSH/view?usp=sharing" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1994wrQvcFXhI8VuwOI2u-y7-XM_9E8ml/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-brain"></i></div>
     <div className="cert-body">
       <h3>Machine Learning Intern</h3>
@@ -139,7 +139,7 @@ function Certificates() {
   <a className="cert-card reveal" href="https://drive.google.com/file/d/1_Ys2SGtOWRgem8lujg_TE_sI9WI6XPdC/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-chart-pie"></i></div>
     <div className="cert-body">
-      <h3>Data Visualisation</h3>
+      <h3>Data Visualisation: Empowering Business with Effective Insights</h3>
       <p className="cert-issuer"><i className="fas fa-building"></i> Tata Group (Forage)</p>
       <p className="cert-date">20 July 2025</p>
       <span className="cert-badge">Completed</span>
@@ -148,7 +148,7 @@ function Certificates() {
   <a className="cert-card reveal" href="https://drive.google.com/file/d/1K53lANbjKfuvVydEhVVBNWdZmzfTpXXZ/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-chart-bar"></i></div>
     <div className="cert-body">
-      <h3>Data Analytics</h3>
+      <h3>Technology Cybersecurity</h3>
       <p className="cert-issuer"><i className="fas fa-building"></i> Deloitte (Forage)</p>
       <p className="cert-date">1 July 2026</p>
       <span className="cert-badge">Completed</span>
@@ -167,21 +167,12 @@ function Certificates() {
       <span className="cert-badge">Pending Link</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1eLegOTWY1R0OIQdlemCqpzMjQbLeukP7/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-database"></i></div>
     <div className="cert-body">
       <h3>Introduction to Data Science</h3>
       <p className="cert-issuer"><i className="fas fa-award"></i> Cisco</p>
       <p className="cert-date">1 January 2026</p>
-      <span className="cert-badge">Pending Link</span>
-    </div>
-  </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-brain"></i></div>
-    <div className="cert-body">
-      <h3>Artificial Intelligence Fundamentals</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> IBM SkillsBuild</p>
-      <p className="cert-date">29 June 2025</p>
       <span className="cert-badge">Pending Link</span>
     </div>
   </a>
@@ -203,13 +194,36 @@ function Certificates() {
       <span className="cert-badge">Verified</span>
     </div>
   </a>
-  <a className="cert-card reveal" href="#" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-chart-line"></i></div>
+  </div>
+
+
+<h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', margin: '4rem 0 1rem' }}>Hackathons &amp; Events</h3>
+<div className="card-container stagger-children">
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1mx9irkSqdfD9BQDpTR-9cGFLka7-zMeD/view?usp=sharing" target="_blank" rel="noreferrer">
+    <div className="cert-icon"><i className="fas fa-trophy"></i></div>
     <div className="cert-body">
-      <h3>Career Skills in Data Analytics</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> LinkedIn Learning</p>
-      <p className="cert-date">20 June 2025</p>
-      <span className="cert-badge">Pending Link</span>
+      <h3>AI Academia – Chronomind</h3>
+      <p className="cert-issuer"><i className="fas fa-award"></i> Hackathon Event</p>
+      <p className="cert-date">2026</p>
+      <span className="cert-badge">Verified</span>
+    </div>
+  </a>
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1L7e618KBOGEuxjjGrhoAZLzV79C5pd0v/view?usp=sharing" target="_blank" rel="noreferrer">
+    <div className="cert-icon"><i className="fas fa-trophy"></i></div>
+    <div className="cert-body">
+      <h3>AI Academia – Decision arena</h3>
+      <p className="cert-issuer"><i className="fas fa-award"></i> Hackathon Event</p>
+      <p className="cert-date">2026</p>
+      <span className="cert-badge">Verified</span>
+    </div>
+  </a>
+  <a className="cert-card reveal" href="https://drive.google.com/file/d/1LGdd6XQAiJ-XNno-rsh1bAj3bYXa6-XQ/view?usp=sharing" target="_blank" rel="noreferrer">
+    <div className="cert-icon"><i className="fas fa-trophy"></i></div>
+    <div className="cert-body">
+      <h3>Zero Day Heist CTF</h3>
+      <p className="cert-issuer"><i className="fas fa-award"></i> Hackathon Event</p>
+      <p className="cert-date">2026</p>
+      <span className="cert-badge">Verified</span>
     </div>
   </a>
 </div>
