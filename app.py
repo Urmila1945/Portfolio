@@ -4,7 +4,7 @@ import fitz  # PyMuPDF
 import json
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='dist', static_url_path='/')
 app.secret_key = 'urmila_portfolio_secret_2025'
 
 # ─────────────────────────────────────────────────────────────
@@ -28,8 +28,6 @@ except Exception as _e:
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_react(path):
-    if path.startswith('assets/'):
-        return send_from_directory('dist/assets', path[7:])
     return send_from_directory('dist', 'index.html')
 
 # ─────────────────────────────────────────────────────────────
