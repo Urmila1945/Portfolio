@@ -64,6 +64,9 @@ function Welcome() {
               <a href="/static/Urmila_CV.pdf" download className="welcome-btn-ghost">
                 <i className="fas fa-download"></i> Download CV
               </a>
+              <Link to="/resume_analyzer" className="welcome-btn-ghost">
+                <i className="fas fa-magic"></i> AI Resume Analyzer
+              </Link>
             </div>
 
             <div className="welcome-stats-row">
