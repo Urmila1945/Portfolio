@@ -158,15 +158,7 @@ function Certificates() {
 
 <h3 className="reveal" style={{ color: 'var(--accent-1)', textAlign: 'center', margin: '4rem 0 1rem' }}>Additional Professional Certifications</h3>
 <div className="card-container stagger-children">
-  <a className="cert-card reveal" href="https://drive.google.com/file/d/1j0JV_mKhd5udQh0pzIBqHxKaOu92IDVc/view?usp=sharing" target="_blank" rel="noreferrer">
-    <div className="cert-icon"><i className="fas fa-robot"></i></div>
-    <div className="cert-body">
-      <h3>AI Fundamentals</h3>
-      <p className="cert-issuer"><i className="fas fa-award"></i> Cisco &amp; IBM</p>
-      <p className="cert-date">29 June 2025</p>
-      <span className="cert-badge">Verified</span>
-    </div>
-  </a>
+
   <a className="cert-card reveal" href="https://drive.google.com/file/d/1eLegOTWY1R0OIQdlemCqpzMjQbLeukP7/view?usp=sharing" target="_blank" rel="noreferrer">
     <div className="cert-icon"><i className="fas fa-database"></i></div>
     <div className="cert-body">
