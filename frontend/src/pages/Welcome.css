@@ -1,21 +1,19 @@
 /* Welcome specific styles */
 .welcome-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 100px 2rem 2rem;
   position: relative;
   z-index: 10;
 }
 
 .welcome-wrapper {
+  margin: auto;
   position: relative; z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3.5rem;
-  padding: 2rem;
   max-width: 1100px;
   width: 100%;
   animation: wrapIn 1s cubic-bezier(0.34,1.56,0.64,1) both;
