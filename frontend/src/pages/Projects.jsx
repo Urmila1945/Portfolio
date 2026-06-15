@@ -10,6 +10,24 @@ function Projects() {
 
         <div className="card-container stagger-children">
           <div className="info-card reveal">
+            <div className="card-icon">🧠</div>
+            <h3>Ratefluencer – AI-Powered Influencer Intelligence Platform</h3>
+            <p>An AI-driven platform designed to provide intelligent insights, analytics, and ratings for influencers.</p>
+            <div className="card-tags">
+              <span className="skill-tag">AI</span>
+              <span className="skill-tag cyan">React</span>
+              <span className="skill-tag">Analytics</span>
+            </div>
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+              <a href="https://github.com/Urmila1945/AI-powered-influencer-intelligence-platform" target="_blank" rel="noreferrer" className="card-link" style={{ marginTop: 0 }}>
+                <i className="fab fa-github"></i> View Code
+              </a>
+              <a href="https://ratefluencer-frontend.onrender.com" target="_blank" rel="noreferrer" className="card-link" style={{ marginTop: 0 }}>
+                <i className="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+          <div className="info-card reveal">
             <div className="card-icon">🤖</div>
             <h3>Quickserve - Localized Home Services Discovery & Booking</h3>
             <p>An AI-powered platform for discovering and booking local home services with personalized recommendations, built using FastAPI, React, and MongoDB.</p>
