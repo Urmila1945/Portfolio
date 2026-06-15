@@ -377,12 +377,6 @@ function Home() {
               <p>📅 2026</p>
             </div>
           </a>
-          <a className="education-card reveal" href="https://drive.google.com/file/d/1LGdd6XQAiJ-XNno-rsh1bAj3bYXa6-XQ/view?usp=sharing" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="education-text">
-              <h3 style={{ color: 'var(--accent-1)' }}>Zero Day Heist CTF</h3>
-              <p>📅 2026</p>
-            </div>
-          </a>
         </div>
       </section>
 
