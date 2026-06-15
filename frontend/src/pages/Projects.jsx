@@ -11,7 +11,7 @@ function Projects() {
         <div className="card-container stagger-children">
           <div className="info-card reveal">
             <div className="card-icon">🧠</div>
-            <h3>Ratefluencer – AI-Powered Influencer Intelligence Platform</h3>
+            <h3>AI-Powered Influencer Intelligence Platform</h3>
             <p>An AI-driven platform designed to provide intelligent insights, analytics, and ratings for influencers.</p>
             <div className="card-tags">
               <span className="skill-tag">AI</span>
