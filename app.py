@@ -235,40 +235,68 @@ def extract_text_from_pdf(file_path):
     return text.lower()
 
 def analyze_resume(file_path):
+    import urllib.request
+    import json
+    
     text = extract_text_from_pdf(file_path)
 
-    skill_keywords = [
-        "python", "flask", "machine learning", "deep learning",
-        "data analysis", "react", "sql", "mongodb", "numpy",
-        "pandas", "scikit", "tensorflow", "keras", "nlp",
-        "computer vision", "java", "html", "css", "javascript"
-    ]
-    project_ideas = {
-        "python":           "Build a CLI automation tool or a web scraper.",
-        "machine learning": "Try building a house price predictor or sentiment analyzer.",
-        "flask":            "Create a blog CMS or a REST API backend.",
-        "deep learning":    "Experiment with image classification or GANs.",
-        "sql":              "Build a data pipeline with SQLite or PostgreSQL.",
-        "mongodb":          "Create a NoSQL-backed REST API.",
-        "nlp":              "Build a chatbot or text summarization tool.",
-        "computer vision":  "Try object detection with YOLO or OpenCV.",
+    # Prevent extremely long resumes from overwhelming the prompt limit
+    if len(text) > 15000:
+        text = text[:15000]
+
+    api_key = os.environ.get('GROQ_API_KEY')
+    if not api_key:
+        return {
+            "skills": "API Key Missing",
+            "suggestions": "The GROQ_API_KEY environment variable is not configured on the server.",
+            "projects": "Please configure the API key to enable AI analysis."
+        }
+
+    url = "https://api.groq.com/openai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0"
     }
 
-    found_skills = [s for s in skill_keywords if s in text]
-    missing      = [s for s in skill_keywords[:8] if s not in found_skills]
-
-    suggestions = (
-        f"Consider adding these to your resume: {', '.join(missing[:4])}."
-        if missing else
-        "Excellent! Your resume covers all key skill areas."
+    system_prompt = (
+        "You are an expert technical recruiter and resume analyzer. "
+        "Analyze the provided resume text and return a strict JSON object with exactly three keys:\n"
+        '1. "skills": A comma-separated string of the main technical skills detected.\n'
+        '2. "suggestions": A short, actionable paragraph of advice on how to improve the resume or what skills are missing.\n'
+        '3. "projects": A string suggesting 2-3 specific project ideas the candidate could build based on their current skill set.\n'
+        "Do NOT output any markdown blocks, explanations, or text outside the JSON object. Output ONLY valid JSON."
     )
-    ideas = list({project_ideas[s] for s in found_skills if s in project_ideas})[:3]
 
-    return {
-        "skills":      ', '.join(found_skills) if found_skills else "No major skills detected",
-        "suggestions": suggestions,
-        "projects":    ' | '.join(ideas) if ideas else "Explore more ML/NLP/CV projects",
+    payload = {
+        "model": "llama-3.1-8b-instant",
+        "response_format": {"type": "json_object"},
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"Here is the resume text:\n\n{text}"}
+        ],
+        "temperature": 0.3,
+        "max_tokens": 800
     }
+
+    try:
+        req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers)
+        with urllib.request.urlopen(req, timeout=20) as response:
+            result = json.loads(response.read().decode('utf-8'))
+            reply = result['choices'][0]['message']['content']
+            parsed_reply = json.loads(reply)
+            return {
+                "skills": parsed_reply.get("skills", "No skills detected."),
+                "suggestions": parsed_reply.get("suggestions", "No suggestions available."),
+                "projects": parsed_reply.get("projects", "No projects suggested.")
+            }
+    except Exception as e:
+        print("Groq API Error in Resume Analyzer:", e)
+        return {
+            "skills": "Analysis Failed",
+            "suggestions": f"An error occurred while contacting the AI service: {str(e)}",
+            "projects": "Please try again later."
+        }
 
 # ─────────────────────────────────────────────────────────────
 # RUN — use_reloader=False is critical for OneDrive stability
