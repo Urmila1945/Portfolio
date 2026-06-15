@@ -204,7 +204,7 @@ def analyze_resume_route():
         return jsonify({"success": False, "error": "No file uploaded."}), 400
 
     file = request.files['resume']
-    if file.filename == '' or not file.filename.endswith('.pdf'):
+    if file.filename == '' or not file.filename.lower().endswith('.pdf'):
         return jsonify({"success": False, "error": "Please upload a valid PDF file."}), 400
 
     os.makedirs('resume_data', exist_ok=True)
