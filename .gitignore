@@ -10,4 +10,5 @@ Portfolio/
 .DS_Store
 resume_data/
 static/
+!static/Urmila_CV.pdf
 templates/
