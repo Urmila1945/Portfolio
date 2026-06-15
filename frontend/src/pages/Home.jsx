@@ -153,13 +153,13 @@ function Home() {
           <div className="about-text reveal-left">
             <h3>Hello, I'm <span>Urmila</span> 👋</h3>
             <p>
-              I'm an <strong>Artificial Intelligence &amp; Data Science</strong> student at Datta Meghe College of Engineering,
-              building a strong foundation in machine learning, computer vision, and full-stack web development.
+              I am an ambitious <strong>Artificial Intelligence &amp; Data Science</strong> student at Datta Meghe College of Engineering, with a profound passion for translating complex data into actionable insights and intelligent systems. My academic journey has instilled in me a rigorous foundation in machine learning algorithms, deep learning architectures, and scalable full-stack web development.
             </p>
             <p>
-              I believe in creating software that is not just functional but genuinely impactful —
-              from AI-powered applications to sleek, responsive interfaces.
-              Always learning, always building.
+              Beyond the classroom, I am a dedicated problem solver who thrives at the intersection of logical engineering and creative design. Whether I am architecting robust REST APIs in Python and Flask, training neural networks for computer vision tasks, or crafting intuitive, dynamic user interfaces in React, I approach every project with meticulous attention to detail and a commitment to excellence.
+            </p>
+            <p>
+              I strongly believe that the best software is not just functionally sound, but genuinely impactful. My goal is to leverage cutting-edge AI technologies to build applications that solve real-world problems and enhance the human experience. As an avid learner in an ever-evolving field, I am constantly exploring new frameworks, participating in hackathons, and refining my craft. <em>Always learning, always building.</em>
             </p>
             <a href="/resume" download className="btn glow-btn">
               <i className="fas fa-file-pdf"></i> &nbsp;Download CV
