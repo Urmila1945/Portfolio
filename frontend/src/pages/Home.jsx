@@ -116,6 +116,9 @@ function Home() {
             <a href="/resume" download className="btn btn-secondary">
               <i className="fas fa-download"></i> Download CV
             </a>
+            <Link to="/resume_analyzer" className="btn btn-secondary">
+              <i className="fas fa-magic"></i> AI Resume Analyzer
+            </Link>
           </div>
 
           <div className="social">
