@@ -398,7 +398,7 @@ function Home() {
               e.preventDefault();
               const formData = new FormData(e.target);
               const data = Object.fromEntries(formData.entries());
-              const API_URL = import.meta.env.VITE_API_URL || '';
+              const API_URL = '/api';
               
               const btn = e.target.querySelector('button[type="submit"]');
               const originalText = btn.innerHTML;
