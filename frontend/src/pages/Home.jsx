@@ -356,33 +356,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="hackathons" id="hackathons" style={{ paddingTop: '80px' }}>
-        <h2 className="section-title reveal">Hackathons &amp; Events</h2>
-        <span className="section-accent reveal"></span>
-        <p className="section-subtitle reveal">Competitive programming and technical events.</p>
-
-        <div className="education-container stagger-children">
-          <div className="education-card reveal">
-            <div className="education-text">
-              <h3>HackAstra – Innovision 3.0 Hackathon</h3>
-              <p>K. V. Pendharkar College Department of IT</p>
-              <p>📅 7 February 2026</p>
-            </div>
-          </div>
-          <a className="education-card reveal" href="https://drive.google.com/file/d/1mx9irkSqdfD9BQDpTR-9cGFLka7-zMeD/view?usp=sharing" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="education-text">
-              <h3 style={{ color: 'var(--accent-1)' }}>AI Academia – Chronomind</h3>
-              <p>📅 2026</p>
-            </div>
-          </a>
-          <a className="education-card reveal" href="https://drive.google.com/file/d/1L7e618KBOGEuxjjGrhoAZLzV79C5pd0v/view?usp=sharing" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="education-text">
-              <h3 style={{ color: 'var(--accent-1)' }}>AI Academia – Decision arena</h3>
-              <p>📅 2026</p>
-            </div>
-          </a>
-        </div>
-      </section>
 
       <section className="contact" id="contact">
         <h2 className="section-title reveal">Get in Touch</h2>
