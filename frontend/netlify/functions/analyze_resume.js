@@ -1,7 +1,9 @@
-const multipart = require('parse-multipart-data');
+import multipart from 'parse-multipart-data';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const pdf = require('pdf-parse');
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
