@@ -168,7 +168,7 @@ function Home() {
             <p>
               <em>Always learning, always building.</em>
             </p>
-            <a href="/resume" target="_blank" rel="noreferrer" className="btn glow-btn">
+            <a href="/Urmila_CV.pdf" className="btn glow-btn">
             <i className="fas fa-user-tie"></i> &nbsp;Explore My Resume
           </a>
           </div>
