@@ -1,4 +1,4 @@
-const busboy = require('busboy');
+const multipart = require('parse-multipart-data');
 const pdf = require('pdf-parse');
 
 exports.handler = async (event, context) => {
@@ -6,58 +6,46 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  const apiKey = process.env.GROQ_API_KEY;
-  if (!apiKey) {
-    return {
-      statusCode: 500,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ success: false, error: "API Key missing in environment." })
-    };
-  }
-
-  return new Promise((resolve, reject) => {
-    // Note: Netlify headers are lowercased
-    const contentType = event.headers['content-type'] || event.headers['Content-Type'];
-    if (!contentType) {
-      return resolve({
-        statusCode: 400,
-        body: JSON.stringify({ success: false, error: "Missing Content-Type header." })
-      });
+  try {
+    const apiKey = process.env.GROQ_API_KEY;
+    if (!apiKey) {
+      return { statusCode: 500, body: JSON.stringify({ success: false, error: "API Key missing in environment." }) };
     }
 
-    const bb = busboy({ headers: { 'content-type': contentType } });
-    let fileBuffer = null;
+    const contentType = event.headers['content-type'] || event.headers['Content-Type'];
+    if (!contentType) {
+      return { statusCode: 400, body: JSON.stringify({ success: false, error: "Missing Content-Type header." }) };
+    }
 
-    bb.on('file', (name, file, info) => {
-      if (name === 'resume') {
-        const chunks = [];
-        file.on('data', (data) => chunks.push(data));
-        file.on('end', () => {
-          fileBuffer = Buffer.concat(chunks);
-        });
-      } else {
-        file.resume();
-      }
-    });
+    // Get the boundary
+    const boundaryMatch = contentType.match(/boundary=(.+)$/i);
+    if (!boundaryMatch) {
+      return { statusCode: 400, body: JSON.stringify({ success: false, error: "Missing boundary in content-type." }) };
+    }
+    const boundary = boundaryMatch[1];
 
-    bb.on('finish', async () => {
-      if (!fileBuffer) {
-        return resolve({
-          statusCode: 400,
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ success: false, error: "No file uploaded." })
-        });
-      }
+    if (!event.body) {
+      return { statusCode: 400, body: JSON.stringify({ success: false, error: "Empty request body." }) };
+    }
 
-      try {
-        const pdfData = await pdf(fileBuffer);
-        let text = pdfData.text || "";
-        
-        if (text.length > 15000) {
-          text = text.substring(0, 15000);
-        }
+    // Parse the body synchronously
+    const bodyBuffer = Buffer.from(event.body, event.isBase64Encoded ? 'base64' : 'utf8');
+    const parts = multipart.parse(bodyBuffer, boundary);
 
-        const system_prompt = `You are an expert AI Resume Analyzer for Urmila Kshirsagar's portfolio.
+    // Find the 'resume' file
+    const filePart = parts.find(p => p.name === 'resume');
+    if (!filePart || !filePart.data) {
+      return { statusCode: 400, body: JSON.stringify({ success: false, error: "No file uploaded." }) };
+    }
+
+    const pdfData = await pdf(filePart.data);
+    let text = pdfData.text || "";
+    
+    if (text.length > 15000) {
+      text = text.substring(0, 15000);
+    }
+    
+    const system_prompt = `You are an expert AI Resume Analyzer for Urmila Kshirsagar's portfolio.
 You will receive the text of a user's uploaded resume.
 Your job is to provide constructive, professional feedback on their resume.
 Focus on:
@@ -76,74 +64,52 @@ You MUST format your entire response strictly as a JSON object matching this sch
 }
 Do not include any Markdown formatting like \`\`\`json or \`\`\`. Output ONLY raw valid JSON.`;
 
-        const payload = {
-          model: "llama-3.1-8b-instant",
-          messages: [
-            { role: "system", content: system_prompt },
-            { role: "user", content: "Here is the resume text:\n\n" + text }
-          ],
-          temperature: 0.2,
-          max_tokens: 800
-        };
+    const payload = {
+      model: "llama-3.1-8b-instant",
+      messages: [
+        { role: "system", content: system_prompt },
+        { role: "user", content: "Here is the resume text:\n\n" + text }
+      ],
+      temperature: 0.2,
+      max_tokens: 800
+    };
 
-        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-          method: 'POST',
-          headers: {
-            "Authorization": `Bearer ${apiKey}`,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        });
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: 'POST',
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
-        const result = await response.json();
-        
-        if (result.choices && result.choices.length > 0) {
-          let raw_text = result.choices[0].message.content.trim();
-          raw_text = raw_text.replace(/^```json/i, '').replace(/```$/i, '').trim();
-          let analysis = {};
-          try {
-             analysis = JSON.parse(raw_text);
-          } catch (e) {
-             console.error("JSON parse error:", e, "Raw:", raw_text);
-             return resolve({
-                statusCode: 500,
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ success: false, error: "AI returned invalid JSON format." })
-             });
-          }
-          return resolve({
-            statusCode: 200,
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ success: true, analysis })
-          });
-        } else {
-          return resolve({
-            statusCode: 500,
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ success: false, error: "Failed to generate analysis." })
-          });
-        }
-      } catch (err) {
-        console.error("Analysis Error:", err);
-        return resolve({
-          statusCode: 500,
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ success: false, error: "Could not parse the PDF file. Ensure it contains actual text." })
-        });
+    const result = await response.json();
+    
+    if (result.choices && result.choices.length > 0) {
+      let raw_text = result.choices[0].message.content.trim();
+      raw_text = raw_text.replace(/^```json/i, '').replace(/```$/i, '').trim();
+      let analysis = {};
+      try {
+         analysis = JSON.parse(raw_text);
+      } catch (e) {
+         console.error("JSON parse error:", e, "Raw:", raw_text);
+         return { statusCode: 500, body: JSON.stringify({ success: false, error: "AI returned invalid JSON format." }) };
       }
-    });
-
-    bb.on('error', (err) => {
-      console.error("Busboy Error:", err);
-      return resolve({
-        statusCode: 500,
+      return {
+        statusCode: 200,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ success: false, error: "Error parsing form data." })
-      });
-    });
+        body: JSON.stringify({ success: true, analysis })
+      };
+    } else {
+      return { statusCode: 500, body: JSON.stringify({ success: false, error: "Failed to generate analysis." }) };
+    }
 
-    // Write the event body to busboy
-    bb.write(Buffer.from(event.body, event.isBase64Encoded ? 'base64' : 'utf8'));
-    bb.end();
-  });
+  } catch (error) {
+    console.error("Serverless Function Error:", error);
+    return {
+      statusCode: 500,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ success: false, error: "An internal server error occurred.", details: error.toString() })
+    };
+  }
 };
