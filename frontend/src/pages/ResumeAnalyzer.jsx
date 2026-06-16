@@ -23,7 +23,8 @@ function ResumeAnalyzer() {
     const formData = new FormData(e.target);
 
     try {
-      const response = await fetch('/analyze_resume', {
+      const API_URL = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${API_URL}/analyze_resume`, {
         method: 'POST',
         body: formData,
       });

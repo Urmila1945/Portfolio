@@ -386,7 +386,39 @@ function Home() {
         <p className="section-subtitle reveal">I'd love to hear from you — let's build something great together!</p>
 
         <div className="contact-container">
-          <form action="/contact" method="POST" className="contact-form reveal-left" id="contact-form">
+          <form 
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const formData = new FormData(e.target);
+              const data = Object.fromEntries(formData.entries());
+              const API_URL = import.meta.env.VITE_API_URL || '';
+              
+              const btn = e.target.querySelector('button[type="submit"]');
+              const originalText = btn.innerHTML;
+              btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+              
+              try {
+                const response = await fetch(`${API_URL}/contact`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                  alert('Message sent successfully!');
+                  e.target.reset();
+                } else {
+                  alert('There was an error sending your message.');
+                }
+              } catch (error) {
+                alert('There was an error sending your message.');
+              } finally {
+                btn.innerHTML = originalText;
+              }
+            }} 
+            className="contact-form reveal-left" 
+            id="contact-form"
+          >
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" rows="5" placeholder="Your Message" required></textarea>

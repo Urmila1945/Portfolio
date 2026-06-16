@@ -3,8 +3,10 @@ import os
 import fitz  # PyMuPDF
 import json
 from datetime import datetime
+from flask_cors import CORS
 
 app = Flask(__name__, static_folder='dist', static_url_path='/')
+CORS(app)  # Enable CORS for all routes so Netlify can talk to this backend
 app.secret_key = 'urmila_portfolio_secret_2025'
 
 # ─────────────────────────────────────────────────────────────
