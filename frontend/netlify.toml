@@ -3,6 +3,10 @@
   publish = "dist"
   command = "npm run build"
 
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["pdf-parse"]
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
