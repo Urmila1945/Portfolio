@@ -61,8 +61,8 @@ function Welcome() {
               <Link to="/portfolio" className="welcome-btn-enter">
                 Enter Portfolio <i className="fas fa-arrow-right"></i>
               </Link>
-              <a href="/static/Urmila_CV.pdf" download className="welcome-btn-ghost">
-                <i className="fas fa-download"></i> Download CV
+              <a href="/static/Urmila_CV.pdf" target="_blank" rel="noreferrer" className="welcome-btn-ghost">
+                <i className="fas fa-file-contract"></i> View Resume
               </a>
             </div>
 

@@ -113,8 +113,15 @@ function Home() {
             <Link to="/projects" className="btn btn-primary">
               View Projects <i className="fas fa-arrow-right"></i>
             </Link>
-            <a href="/resume" download className="btn btn-secondary">
-              <i className="fas fa-download"></i> Download CV
+            <a href="#contact" onClick={(e) => {
+              e.preventDefault();
+              const element = document.getElementById('contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                window.history.pushState(null, '', `/portfolio#contact`);
+              }
+            }} className="btn btn-secondary">
+              <i className="fas fa-handshake"></i> Hire Me
             </a>
             <Link to="/resume_analyzer" className="btn btn-secondary">
               <i className="fas fa-magic"></i> AI Resume Analyzer
@@ -161,9 +168,9 @@ function Home() {
             <p>
               <em>Always learning, always building.</em>
             </p>
-            <a href="/resume" download className="btn glow-btn">
-              <i className="fas fa-file-pdf"></i> &nbsp;Download CV
-            </a>
+            <a href="/resume" target="_blank" rel="noreferrer" className="btn glow-btn">
+            <i className="fas fa-user-tie"></i> &nbsp;Explore My Resume
+          </a>
           </div>
 
           <div className="about-photo reveal-right">
