@@ -3,6 +3,9 @@ import os
 import fitz  # PyMuPDF
 import json
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='dist', static_url_path='/')
