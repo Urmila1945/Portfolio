@@ -214,6 +214,21 @@ function Certificates() {
 </div>
 
 </section>
+      {selectedCert && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', 
+          backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 9999,
+          display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'
+        }} onClick={() => setSelectedCert(null)}>
+          <button style={{
+            position: 'absolute', top: '20px', right: '30px', 
+            background: 'none', border: 'none', color: 'white', fontSize: '2.5rem', cursor: 'pointer'
+          }} onClick={() => setSelectedCert(null)}>&times;</button>
+          <div style={{width: '80%', height: '80%', background: '#fff', borderRadius: '10px', overflow: 'hidden'}} onClick={e => e.stopPropagation()}>
+            <iframe src={selectedCert} width="100%" height="100%" style={{border: 'none'}} allow="autoplay"></iframe>
+          </div>
+        </div>
+      )}
 </main>
   );
 }
