@@ -5,50 +5,39 @@ export const handler = async (event, context) => {
 
   try {
     const data = JSON.parse(event.body || '{}');
-    const user_input = (data.message || '').trim();
+    const user_input = (data.message || '').trim().toLowerCase();
 
     if (!user_input) {
       return {
         statusCode: 200,
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reply: "Please ask a question." })
       };
     }
 
-    const apiKey = process.env.GROQ_API_KEY;
-    if (!apiKey) {
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ reply: "I'm sorry, the chatbot is currently unavailable due to missing configuration." })
-      };
-    }
+    let reply = "I'm Urmila's automated assistant! You can ask me about her skills, projects, education, or contact info.";
 
-    const system_prompt = `You are an AI assistant for Urmila Kshirsagar's portfolio. Your only job is to answer questions about Urmila, her portfolio, projects, skills, education, and contact details. Urmila is a Python Developer & AI/Data Science Student at DMCE (CGPA: 8.7). Skills: Python, Flask, Scikit-learn, Pandas, SQL, Java, HTML/CSS. She has 15+ projects (AI Career Recommender, Plagiarism Detector, Face Recognition System, Weather App). She has 8+ certifications (IBM, Google, AWS, deeplearning.ai). Contact: urmilakshirsagar1945@gmail.com. Location: Mumbai, Maharashtra, India. If a user asks about something completely unrelated to Urmila or her portfolio, politely refuse to answer and remind them that you are Urmila's portfolio assistant. Keep responses concise, friendly, and professional.`;
-
-    const payload = {
-      model: "llama-3.1-8b-instant",
-      messages: [
-        { role: "system", content: system_prompt },
-        { role: "user", content: user_input }
-      ],
-      temperature: 0.3,
-      max_tokens: 150
-    };
-
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: 'POST',
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    const result = await response.json();
-    let reply = "";
-    if (result.choices && result.choices.length > 0) {
-      reply = result.choices[0].message.content;
-    } else {
-      reply = "Sorry, I couldn't generate a response.";
+    // Rule-based logic matching user text
+    if (user_input.includes('hi') || user_input.includes('hello') || user_input.includes('hey')) {
+      reply = "Hi there! 👋 I'm Urmila's virtual assistant. Ask me anything about her skills, projects, or how to contact her!";
+    } else if (user_input.includes('skill') || user_input.includes('tech') || user_input.includes('stack')) {
+      reply = "Urmila is skilled in Python, Java, HTML/CSS, JavaScript, SQL, Flask, React, Machine Learning, and Data Science. She loves building intelligent systems!";
+    } else if (user_input.includes('project') || user_input.includes('portfolio') || user_input.includes('work')) {
+      reply = "Urmila has built over 15 projects including an AI Career Recommender, a Plagiarism Detector, a Face Recognition System, and this very portfolio! Check out the Projects section for more details.";
+    } else if (user_input.includes('contact') || user_input.includes('email') || user_input.includes('hire') || user_input.includes('reach')) {
+      reply = "You can reach Urmila via email at urmilakshirsagar1945@gmail.com, or connect with her on LinkedIn or GitHub through the links in the footer!";
+    } else if (user_input.includes('education') || user_input.includes('college') || user_input.includes('degree') || user_input.includes('cgpa')) {
+      reply = "Urmila is currently pursuing her B.E. in Artificial Intelligence & Data Science at Datta Meghe College of Engineering, with an excellent CGPA of 8.7!";
+    } else if (user_input.includes('resume') || user_input.includes('cv')) {
+      reply = "You can download Urmila's full resume using the 'Download CV' button on the Welcome page!";
+    } else if (user_input.includes('certif') || user_input.includes('course')) {
+      reply = "She holds 8+ professional certifications from top institutions like IBM, Google, AWS, and deeplearning.ai. See the Knowledge section for the full list!";
+    } else if (user_input.includes('who are you') || user_input.includes('your name') || user_input.includes('bot')) {
+      reply = "I am a custom virtual assistant built by Urmila to help you quickly find the information you need about her professional background!";
+    } else if (user_input.includes('bye') || user_input.includes('thanks') || user_input.includes('thank you')) {
+      reply = "You're very welcome! Feel free to ask if you need anything else. Have a great day!";
+    } else if (user_input.includes('urmila')) {
+      reply = "Urmila is an ambitious AI & Data Science student and Python Developer who loves turning ideas into intelligent software. What would you like to know about her?";
     }
 
     return {
@@ -59,8 +48,9 @@ export const handler = async (event, context) => {
   } catch (error) {
     console.error("Chat Error:", error);
     return {
-      statusCode: 500,
-      body: JSON.stringify({ reply: "An error occurred while processing your request." })
+      statusCode: 200,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reply: "An error occurred while processing your request. Please try again." })
     };
   }
 };
