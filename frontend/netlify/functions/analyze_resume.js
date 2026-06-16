@@ -1,7 +1,4 @@
 import multipart from 'parse-multipart-data';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const pdf = require('pdf-parse');
 
 export const handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
@@ -50,6 +47,8 @@ export const handler = async (event, context) => {
 
     let pdfData;
     try {
+      const pdfModule = await import('pdf-parse');
+      const pdf = pdfModule.default || pdfModule;
       pdfData = await pdf(filePart.data);
     } catch (err) {
       return { statusCode: 200, body: JSON.stringify({ success: false, error: "PDF Parse error: " + err.toString() }) };
