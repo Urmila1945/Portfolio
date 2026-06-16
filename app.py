@@ -283,7 +283,16 @@ def analyze_resume(file_path):
         req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers)
         with urllib.request.urlopen(req, timeout=20) as response:
             result = json.loads(response.read().decode('utf-8'))
-            reply = result['choices'][0]['message']['content']
+            reply = result['choices'][0]['message']['content'].strip()
+            # Clean markdown code blocks if the model mistakenly included them
+            if reply.startswith("```json"):
+                reply = reply[7:]
+            if reply.startswith("```"):
+                reply = reply[3:]
+            if reply.endswith("```"):
+                reply = reply[:-3]
+            reply = reply.strip()
+            
             parsed_reply = json.loads(reply)
             return {
                 "skills": parsed_reply.get("skills", "No skills detected."),
