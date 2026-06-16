@@ -123,9 +123,6 @@ function Home() {
             }} className="btn btn-secondary">
               <i className="fas fa-handshake"></i> Hire Me
             </a>
-            <Link to="/resume_analyzer" className="btn btn-secondary">
-              <i className="fas fa-magic"></i> AI Resume Analyzer
-            </Link>
           </div>
 
           <div className="social">

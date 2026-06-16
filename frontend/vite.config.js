@@ -8,8 +8,7 @@ export default defineConfig({
     proxy: {
       '/static': 'http://localhost:5000',
       '/contact': 'http://localhost:5000',
-      '/chat': 'http://localhost:5000',
-      '/analyze_resume': 'http://localhost:5000'
+      '/chat': 'http://localhost:5000'
     }
   },
   build: {

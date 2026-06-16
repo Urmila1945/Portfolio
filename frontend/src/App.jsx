@@ -12,7 +12,6 @@ import Projects from './pages/Projects';
 import Certificates from './pages/Certificates';
 import Knowledge from './pages/Knowledge';
 import Blog from './pages/Blog';
-import ResumeAnalyzer from './pages/ResumeAnalyzer';
 import BackToTop from './components/BackToTop';
 
 function RouteChangeHandler() {
@@ -122,11 +121,7 @@ function App() {
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/resume_analyzer" element={<ResumeAnalyzer />} />
       </Routes>
-      <Link to="/resume_analyzer" className="floating-resume-btn" title="AI Resume Analyzer" aria-label="AI Resume Analyzer">
-        <i className="fas fa-magic"></i>
-      </Link>
       <BackToTop />
       <Chatbot />
       <Footer />
