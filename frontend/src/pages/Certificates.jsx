@@ -227,6 +227,16 @@ function Certificates() {
           <div style={{width: '80%', height: '80%', background: '#fff', borderRadius: '10px', overflow: 'hidden'}} onClick={e => e.stopPropagation()}>
             <iframe src={selectedCert} width="100%" height="100%" style={{border: 'none'}} allow="autoplay"></iframe>
           </div>
+          <a 
+            href={selectedCert.replace('/preview', '/view?usp=sharing')} 
+            target="_blank" 
+            rel="noreferrer"
+            className="btn glow-btn"
+            style={{ marginTop: '20px', padding: '10px 20px', fontSize: '1rem' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <i className="fas fa-download"></i> Download Certificate
+          </a>
         </div>
       )}
 </main>
