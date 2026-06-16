@@ -22,7 +22,7 @@ function Chatbot() {
     setIsTyping(true);
 
     try {
-      const API_URL = '/api';
+      const API_URL = '/.netlify/functions';
       const response = await fetch(`${API_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -4,7 +4,11 @@ export const handler = async (event, context) => {
   }
 
   try {
-    const data = JSON.parse(event.body || '{}');
+    let rawBody = event.body || '{}';
+    if (event.isBase64Encoded) {
+      rawBody = Buffer.from(rawBody, 'base64').toString('utf-8');
+    }
+    const data = JSON.parse(rawBody);
     const user_input = (data.message || '').trim().toLowerCase();
 
     if (!user_input) {
