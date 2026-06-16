@@ -211,7 +211,7 @@ function Home() {
               <p>📚 Machine Learning · Data Structures · Computer Vision · Algorithms</p>
             </div>
             <div className="education-logo">
-              <div className="edu-logo-placeholder">🎓</div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Datta_Meghe_College_of_Engineering%2C_Airoli_logo.png" alt="DMCE Logo" style={{ width: '80px', height: '80px', objectFit: 'contain' }} />
             </div>
           </div>
 
