@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 function Header() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const handleScroll = (e, targetId) => {
     e.preventDefault();
@@ -19,26 +25,26 @@ function Header() {
     }
     
     // Close mobile menu if open
-    const nav = document.getElementById('main-nav');
-    const hamburger = document.getElementById('nav-hamburger');
-    if (nav && nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      if (hamburger) hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-    }
+    setIsMenuOpen(false);
   };
 
   return (
     <header className="header" id="main-header">
       <Link to="/portfolio" className="logo">UK</Link>
-      <nav className="navbar" id="main-nav">
+      <nav className={`navbar ${isMenuOpen ? 'open' : ''}`} id="main-nav">
         <a href="#home" onClick={(e) => handleScroll(e, 'home')} id="nav-home">Home</a>
         <a href="#about" onClick={(e) => handleScroll(e, 'about')} id="nav-about">About</a>
         <a href="#education" onClick={(e) => handleScroll(e, 'education')} id="nav-education">Education</a>
         <a href="#skills" onClick={(e) => handleScroll(e, 'skills')} id="nav-skills">Skills</a>
         <a href="#contact" onClick={(e) => handleScroll(e, 'contact')} id="nav-contact">Contact</a>
       </nav>
-      <button className="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-        <i className="fas fa-bars"></i>
+      <button 
+        className="nav-hamburger" 
+        id="nav-hamburger" 
+        aria-label="Toggle menu"
+        onClick={toggleMenu}
+      >
+        <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
       </button>
     </header>
   );
